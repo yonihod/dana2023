@@ -2,6 +2,7 @@ import Navbar from '@/components/Navbar'
 import './globals.scss'
 import { Inter } from 'next/font/google'
 import { ContextProvider } from './context/ContextProvider'
+import Blob from '@/components/Blob'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-black`}>
         <ContextProvider>
           <Navbar />
+          <Blob />
           {children}
         </ContextProvider>
       </body>

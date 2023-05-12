@@ -16,7 +16,7 @@ const initialState: StateType = {
     toggleLanguage: () => { },
 };
 
-export const Context = createContext<{
+export const Context = React.createContext<{
     language: Language;
     setLanguage: Dispatch<Language>;
     toggleLanguage: (input: Language) => void;

@@ -28,14 +28,14 @@ const initGallery = (track: HTMLDivElement) => {
         const percentage = (mouseDelta / maxDelta) * -100,
             nextPercentageUnconstrained =
                 parseFloat(track.dataset.prevPercentage) + percentage,
-            maxPercentage = -100 * ((track.children.length - 1) / 6),
+            maxPercentage = -100 * ((track.children.length - 1) / 5),
             nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 50), maxPercentage),
             nextPercentageObjectPosition = Math.max(Math.min(nextPercentageUnconstrained, 0), -100)
 
         track.dataset.percentage = nextPercentage.toString();
         track.animate(
             {
-                transform: `translateX(${nextPercentage}%)`,
+                transform: `translateX(${nextPercentage + 50}%)`,
             },
             { duration: 1200, fill: "forwards" }
         );
@@ -70,7 +70,7 @@ export default function Gallery() {
     const path = usePathname();
     const track = React.useRef<HTMLDivElement>(null);
     const [imageReady, setImageReady] = React.useState(false);
-    const [item, setItem] = React.useState(null);
+    const [item, setItem] = React.useState<string | null>(null);
     const [show, setShow] = React.useState(false);
     React.useEffect(() => {
         if (track?.current) {
@@ -110,7 +110,7 @@ export default function Gallery() {
                         draggable="false"
                         onLoad={onLoadCallBack}
                         onClick={() => {
-                            setItem(`https://picsum.photos/1000/400?random=${i}`);
+                            setItem(`https://picsum.photos/${window.outerWidth}/${window.outerHeight}?random=${i}`);
                             setShow(true);
                         }}
                     />

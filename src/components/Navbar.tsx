@@ -48,14 +48,14 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="p-4 flex justify-center navbar z-20">
-            <div className="logo absolute top-2 left-2">
+        <nav className="p-4 flex justify-center navbar relative">
+            <div className="logo absolute top-2 left-2 z-10">
                 <Image src={Logo} alt="Galiko Design" height={40} width={40} />
             </div>
-            <div className="logo absolute top-2 right-2 text-white">
+            <div className="logo absolute top-2 right-2 text-white z-10">
                 <LanguageIcon />
             </div>
-            <ul className="menu menu-horizontal px-1 flex gap-x-12">
+            <ul className="menu menu-horizontal px-1 flex gap-x-12 z-30">
                 {
                     renderRoutes()
                 }

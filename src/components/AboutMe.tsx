@@ -33,8 +33,8 @@ const aboutMe = {
 export default function AboutMe() {
     const { language } = React.useContext(Context);
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between max-w-lg text-white text-2xl leading-loose">
+        <div className="flex min-h-screen flex-col items-center justify-between max-w-lg text-white text-2xl leading-loose relative z-20">
             {aboutMe[language]}
-        </main>
+        </div>
     )
 }
