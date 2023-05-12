@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .navitem.active {
+    @apply text-white;
+  }
+  .navitem {
+    @apply text-gray-600 hover:text-white transition-colors duration-500;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  height: 100vh;
+  width: 100vw;
+  margin: 0rem;
+  overflow: hidden;
+}
+
+#image-track {
+  display: flex;
+  gap: 4vmin;
+  user-select: none;
+  transform: translateX(50%);
+  &.loading {
+    .image {
+      opacity: 0;
+    }
+  }
+  .image {
+    width: 40vmin;
+    height: 56vmin;
+    object-fit: cover;
+    object-position: 100% center;
+  }
+}
