@@ -22,7 +22,7 @@ export default function Blob() {
     }, [blob])
     return (
         <>
-            <div id="blob" ref={blob} className="-z-20" />
+            <div id="blob" ref={blob} className="-z-20 absolute" />
             <div id="blur" className="absolute top-0 left-0 w-full h-full -z-10" />
         </>
     )
