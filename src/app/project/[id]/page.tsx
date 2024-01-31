@@ -8,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Image from "next/image";
 
 export default function Project({ params }: { params: { id: string } }) {
   const project = projectMap.get(params?.id);
@@ -42,10 +43,12 @@ export default function Project({ params }: { params: { id: string } }) {
             {project.images.map((img, index) => (
               <CarouselItem key={index} className="h-full">
                 <div className="shadow shadow-white">
-                  <img
+                  <Image
+                    alt="image"
                     className="w-full h-full object-cover rounded-lg"
                     src={img}
-                    alt=""
+                    width={350}
+                    height={350}
                   />
                 </div>
               </CarouselItem>

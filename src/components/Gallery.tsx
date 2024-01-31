@@ -123,7 +123,7 @@ export default function Gallery() {
       className={`${imageReady ? "" : "loading"}`}
     >
       {projects.map(({ id, cover, title }, i) => (
-        <div className="w-full h-full">
+        <div className="w-full h-full" key={id}>
           <HoverCard>
             <HoverCardTrigger asChild>
               <Image
