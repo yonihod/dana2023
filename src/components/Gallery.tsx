@@ -140,7 +140,7 @@ export default function Gallery({ covers, data }: { covers: {publicId: string, p
                         width={1000}
                         height={400}
                         key={`image-${i}`}
-                        className="image transition-opacity duration-500 ease-in-out cursor-pointer aspect-video object-cover"
+                        className="image transition-opacity glow duration-500 ease-in-out cursor-pointer aspect-video object-cover rounded-md"
                         src={`https://picsum.photos/550/400?random=${i}`}
                         alt="image"
                         draggable="false"
