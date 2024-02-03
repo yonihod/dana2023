@@ -16,7 +16,7 @@ export default function Project({ params }: { params: { id: string } }) {
     return notFound;
   }
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between px-24">
+    <main className="flex h-screen overflow-y-auto flex-col items-center justify-between md:px-24 px-4 pb-28">
       <div
         className="aspect-w-16 aspect-h-9 shadow-white/15 shadow-2xl w-full bg-cover bg-center relative text-left flex flex-col p-24"
         style={{
@@ -27,21 +27,21 @@ export default function Project({ params }: { params: { id: string } }) {
         ), url(${project.cover})`,
         }}
       >
-        <h1 className="text-6xl text-white font-semibold font-serif pb-16">
+        <h1 className="text-6xl text-white font-semibold font-serif md:pb-16">
           {project.title}
         </h1>
-        <h4 className="text-3xl text-white font-semibold font-serif pb-16">
+        <h4 className="text-3xl text-white font-semibold font-serif md:pb-16">
           {project.subtitle}
         </h4>
       </div>
-      <div className="flex mb-auto gap-12 mt-10">
+      <div className="flex md:flex-row flex-col-reverse mb-auto md:gap-12 gap-4 mt-10">
         <p className="text-xl leading-8 text-white max-w-xl">
           {project.description}
         </p>
-        <Carousel className="w-full max-w-sm">
-          <CarouselContent>
+        <Carousel className="md:max-w-sm">
+          <CarouselContent className="w-full">
             {project.images.map((img, index) => (
-              <CarouselItem key={index} className="h-full">
+              <CarouselItem key={index} className="h-full basis-1/2">
                 <div className="shadow shadow-white">
                   <Image
                     alt="image"

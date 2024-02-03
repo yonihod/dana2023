@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
-import GalleryItem from "./GalleryItem";
 import { useRouter } from "next/navigation";
 import { projects } from "@/data";
 import {
@@ -11,6 +10,13 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const initGallery = (track: HTMLDivElement) => {
   const numberOfImages = track.children.length;
@@ -40,9 +46,9 @@ const initGallery = (track: HTMLDivElement) => {
       nextPercentageUnconstrained =
         parseFloat(track.dataset.prevPercentage) + percentage,
       maxPercentage =
-        -100 * ((track.children.length - 1) / numberOfImagesOnScreen),
+        -75 * ((track.children.length - 1) / numberOfImagesOnScreen),
       nextPercentage = Math.max(
-        Math.min(nextPercentageUnconstrained, 50),
+        Math.min(nextPercentageUnconstrained, 0),
         maxPercentage
       ),
       nextPercentageObjectPosition = Math.max(
@@ -53,7 +59,7 @@ const initGallery = (track: HTMLDivElement) => {
     track.dataset.percentage = nextPercentage.toString();
     track.animate(
       {
-        transform: `translateX(${nextPercentage + 50}%)`,
+        transform: `translateX(${nextPercentage + 25}%)`,
       },
       { duration: 1200, fill: "forwards" }
     );
@@ -115,15 +121,15 @@ export default function Gallery() {
   };
 
   return (
-    <div
-      id="image-track"
-      ref={track}
-      data-mouse-down-at="0"
-      data-prev-percentage="0"
-      className={`${imageReady ? "" : "loading"}`}
-    >
-      {projects.map(({ id, cover, title }, i) => (
-        <div className="w-full h-full" key={id}>
+    <>
+      <div
+        id="image-track"
+        ref={track}
+        data-mouse-down-at="0"
+        data-prev-percentage="0"
+        className={`${imageReady ? "" : "loading"} hidden md:flex`}
+      >
+        {projects.map(({ id, cover, title }, i) => (
           <HoverCard>
             <HoverCardTrigger asChild>
               <Image
@@ -133,9 +139,9 @@ export default function Gallery() {
                 width={1000}
                 height={400}
                 key={`image-${i}`}
-                className={`image fade-in-15 animate-in animate transition-opacity
-                            glow duration-500 ease-in-out cursor-pointer aspect-video
-                            object-cover rounded-md`}
+                className={`image fade-in-15 animate-in animate transition-opacity my-24
+                            glow duration-500 ease-in-out cursor-pointer
+                            object-cover`}
                 src={cover}
                 alt="image"
                 draggable="false"
@@ -147,8 +153,42 @@ export default function Gallery() {
               <h4 className="text-center font-serif font-semibold">{title}</h4>
             </HoverCardContent>
           </HoverCard>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+      <div className="overflow-hidden">
+        <Carousel
+          opts={{
+            align: "start",
+          }}
+          orientation="vertical"
+          className="w-full h-full max-w-sm p-4 md:hidden mx-auto"
+        >
+          <CarouselContent className="h-[550px]">
+            {projects.map(({ id, cover, title }, i) => (
+              <CarouselItem
+                className="basis-1/2"
+                key={`carousel-item-${id}`}
+                onClick={() => onClick(id)}
+              >
+                <div className="h-full pt-6">
+                  <h4 className="text-center font-serif font-semibold text-white">
+                    {title}
+                  </h4>
+                  <Image
+                    alt="image"
+                    className="w-full h-full object-cover rounded-lg"
+                    src={cover}
+                    width={350}
+                    height={350}
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </div>
+    </>
   );
 }

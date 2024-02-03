@@ -90,7 +90,7 @@
     inset -20px 0 300px #01322056, 
     0 0 50px #ffffff63,            
     -10px 0 80px #00008b80,        
-    10px 0 80px #01322056;         
+    10px 0 80px #01322056;
   }
 }
 
@@ -140,22 +140,18 @@ body {
 }
 
 #image-track {
-  display: flex;
   gap: 4vmin;
   user-select: none;
-  transform: translateX(50%);
+  transform: translateX(25%);
   &.loading {
     .image {
       opacity: 0;
     }
   }
-  >div {
-    width: 40vmin;
-    height: 56vmin;
-  }
+
   .image {
-    width: 100%;
-    height: 100%;
+    width: 42vmin;
+    height: 48vmin;
     object-position: 100% center;
   }
 }

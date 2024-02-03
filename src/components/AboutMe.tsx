@@ -1,4 +1,4 @@
-'use client'
+"use client";
 const aboutMe = `
     היי, נעים להכיר
     דנה גליקו
@@ -12,12 +12,12 @@ const aboutMe = `
     
     אני נהנית להפוך משימות מורכבות לעיצובים פשוטים, יפים ואינטואטיביים
     כשאני לא מעצבת תמצאו אותי במטבח מאלתרת מתכונים ואופה
-`
+`;
 
 export default function AboutMe() {
-    return (
-        <div className="flex min-h-screen flex-col items-center justify-between max-w-lg text-white text-2xl leading-loose relative z-20">
-            {aboutMe}
-        </div>
-    )
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-between md:max-w-lg text-white text-2xl leading-loose">
+      {aboutMe}
+    </div>
+  );
 }

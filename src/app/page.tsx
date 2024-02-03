@@ -1,9 +1,17 @@
-import Gallery from '@/components/Gallery'
+import Gallery from "@/components/Gallery";
 
 export default async function Home() {
   return (
-    <main className="grid h-full place-items-center z-20 relative w-screen overflow-x-hidden">
+    <main className="relative w-screen pt-14 overflow-x-hidden">
+      <h1 className="text-white font-serif text-7xl text-center">
+        <span className="font-extrabold">Hi</span>
+        <span className="font-extrabold text-yellow-600">,</span>
+        <span className="ml-4">I</span>
+        <span className="font-extrabold text-orange-600">'</span>
+        <span>m </span>
+        <span className="font-extrabold text-slate-100">Dana</span>
+      </h1>
       <Gallery />
     </main>
-  )
+  );
 }
