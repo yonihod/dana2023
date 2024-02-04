@@ -6,10 +6,12 @@ export default async function Home() {
       <h1 className="text-white font-serif text-7xl text-center">
         <span className="font-extrabold">Hi</span>
         <span className="font-extrabold text-yellow-600">,</span>
-        <span className="ml-4">I</span>
-        <span className="font-extrabold text-orange-600">&apos;</span>
-        <span>m</span>
-        <span className="font-extrabold text-slate-100 ml-4">Dana</span>
+        <span className="block md:inline">
+          <span className="ml-4">I</span>
+          <span className="font-extrabold text-orange-600">&apos;</span>
+          <span>m</span>
+          <span className="font-extrabold text-slate-100 ml-4">Dana</span>
+        </span>
       </h1>
       <Gallery />
     </main>

@@ -16,36 +16,40 @@ export default function Project({ params }: { params: { id: string } }) {
     return notFound;
   }
   return (
-    <main className="flex h-screen overflow-y-auto flex-col items-center justify-between md:px-24 px-4 pb-28">
+    <main className="flex flex-col items-center justify-between px-4 md:px-24 pb-28 h-screen overflow-y-auto">
       <div
-        className="aspect-w-16 aspect-h-9 shadow-white/15 shadow-2xl w-full bg-cover bg-center relative text-left flex flex-col p-24"
+        className={
+          "relative bg-cover bg-center shadow-2xl shadow-white/15 w-full md:aspect-w-16 md:aspect-h-9 text-left"
+        }
         style={{
-          backgroundImage: `linear-gradient(
-            to right, 
-            rgba(0, 0, 0, 0.4) 40%,  /* start with semi-transparent black */
-            rgba(0, 0, 0, 0)     /* end with transparent black */
-        ), url(${project.cover})`,
+          backgroundImage: `url(${project.cover})`,
         }}
       >
-        <h1 className="text-6xl text-white font-semibold font-serif md:pb-16">
-          {project.title}
-        </h1>
-        <h4 className="text-3xl text-white font-semibold font-serif md:pb-16">
-          {project.subtitle}
-        </h4>
+        <div className="z-10 absolute bg-gradient-to-r from-black/80 via-black-60 to-transparent w-full h-full" />
+        <div className="relative z-20 flex flex-col px-4 py-8 md:p-24 w-full h-full">
+          <h1 className="pb-4 md:pb-16 font-semibold font-serif text-6xl text-white">
+            {project.title}
+          </h1>
+          <h4 className="md:pb-16 font-semibold font-serif text-3xl text-white">
+            {project.subtitle}
+          </h4>
+        </div>
       </div>
-      <div className="flex md:flex-row flex-col-reverse mb-auto md:gap-12 gap-4 mt-10">
-        <p className="text-xl leading-8 text-white max-w-xl">
+      <div className="flex flex-col-reverse md:flex-row gap-4 md:gap-12 mt-10 mb-auto">
+        <p className="max-w-xl text-white text-xl leading-8">
           {project.description}
         </p>
-        <Carousel className="md:max-w-sm">
-          <CarouselContent className="w-full">
+        <Carousel className="mx-auto w-9/12 md:w-full max-w-sm">
+          <CarouselContent>
             {project.images.map((img, index) => (
-              <CarouselItem key={index} className="h-full basis-1/2">
+              <CarouselItem
+                key={index}
+                className="h-full basis-full md:basis-1/2"
+              >
                 <div className="shadow shadow-white">
                   <Image
                     alt="image"
-                    className="w-full h-full object-cover rounded-lg"
+                    className="rounded-lg object-cover"
                     src={img}
                     width={350}
                     height={350}
