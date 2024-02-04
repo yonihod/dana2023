@@ -130,7 +130,7 @@ export default function Gallery() {
         className={`${imageReady ? "" : "loading"} hidden md:flex`}
       >
         {projects.map(({ id, cover, title }, i) => (
-          <HoverCard>
+          <HoverCard key={`hover-card-${id}-${i}`}>
             <HoverCardTrigger asChild>
               <Image
                 style={{
@@ -167,7 +167,7 @@ export default function Gallery() {
             {projects.map(({ id, cover, title }, i) => (
               <CarouselItem
                 className="basis-1/2"
-                key={`carousel-item-${id}`}
+                key={`carousel-item-${id}-${i}`}
                 onClick={() => onClick(id)}
               >
                 <div className="h-full pt-6">

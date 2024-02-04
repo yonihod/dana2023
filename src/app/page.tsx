@@ -7,9 +7,9 @@ export default async function Home() {
         <span className="font-extrabold">Hi</span>
         <span className="font-extrabold text-yellow-600">,</span>
         <span className="ml-4">I</span>
-        <span className="font-extrabold text-orange-600">'</span>
-        <span>m </span>
-        <span className="font-extrabold text-slate-100">Dana</span>
+        <span className="font-extrabold text-orange-600">&apos;</span>
+        <span>m</span>
+        <span className="font-extrabold text-slate-100 ml-4">Dana</span>
       </h1>
       <Gallery />
     </main>
