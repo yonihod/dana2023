@@ -1,14 +1,16 @@
 export const projects = [
   {
-    id: "green-harmony",
-    title: "Green Harmony",
-    subtitle: "A Sustainable Lifestyle",
-    description: `"Green Harmony" captures the tranquility of eco-friendly living in a modern setting.
-         The cover photo depicts a minimalist living room integrated with nature, highlighting sustainability.
-         Accompanying images focus on recycling, green transportation, renewable energy, and eco-conscious household practices.
-         This project aims to inspire and promote a greener, more sustainable lifestyle.`,
-    cover: "/green-harmony/cover.png",
-    images: ["/green-harmony/1.png", "/green-harmony/2.png"],
+    id: "logo",
+    title: "Branding",
+    // subtitle: "תפזורת",
+    cover: "/cover/branding.webp",
+    coverBackground: "bg-white",
+    images: [
+      "/logo/C.C.E.C-Group-Ltd.png",
+      "/logo/Maddy4Moms-Pink-Logo.png",
+      "/logo/Mirav-logo-gold-navy.png",
+      "/yarden/cover.png",
+    ],
   },
   {
     id: "urban-oasis",
@@ -90,6 +92,109 @@ export const projects = [
   },
 ];
 
+type Category = {
+  id: string;
+  title: string;
+  images: string[];
+  cover?: string;
+};
+
+export const categories: Category[] = [
+  {
+    id: "branding",
+    title: "Branding",
+    cover: "/category/branding/stains-brush.jpg",
+    images: [
+      "/branding/C.C.E.C Group Ltd Flayer.png",
+      "/branding/Mirav-logo-gold-navy.png",
+      "/branding/C.C.E.C-Group-Asset-1.png",
+      "/branding/Projects Yarden.png",
+      "/branding/C.C.E.C-Group-Ltd.png",
+      "/branding/Querido.png",
+      "/branding/Gaming Poster.png",
+      "/branding/Shai Sharon business card.png",
+      "/branding/Harvest Business Development.png",
+      "/branding/Yarden consulting.png",
+    ],
+  },
+  {
+    id: "social",
+    title: "Social Media",
+    images: ["/social-spectrum/1.png", "/social-spectrum/2.png"],
+  },
+];
+
 export const projectMap = new Map(
   projects.map((project) => [project.id, project])
 );
+
+export const categoryMap = new Map<string, Category>(
+  categories.map((category) => [category.id, category])
+);
+
+type Cover = {
+  id: string;
+  cover: string;
+  title: string;
+  coverBackground: string;
+  link: string;
+};
+
+export const covers: Cover[] = [
+  {
+    id: "branding",
+    title: "Branding",
+    cover: "/cover/branding.webp",
+    coverBackground: "bg-white",
+    link: "/category/branding",
+  },
+  {
+    id: "urban-oasis",
+    title: "Urban Oasis",
+    cover: "/urban-oasis/cover.png",
+    coverBackground: "bg-white",
+    link: "/project/urban-oasis",
+  },
+  {
+    id: "digital-canvas",
+    title: "Digital Canvas",
+    cover: "/digital-canvas/cover.png",
+    coverBackground: "bg-white",
+    link: "/project/digital-canvas",
+  },
+  {
+    id: "social-spectrum",
+    title: "Social Spectrum",
+    cover: "/social-spectrum/cover.png",
+    coverBackground: "bg-white",
+    link: "/project/social-spectrum",
+  },
+  {
+    id: "culinary-delights",
+    title: "Culinary Delights",
+    cover: "/culinary-delights/cover.png",
+    coverBackground: "bg-white",
+    link: "/project/culinary-delights",
+  },
+  {
+    id: "tech-innovation",
+    title: "Tech Innovations",
+    cover: "/tech-innovation/cover.png",
+    coverBackground: "bg-white",
+    link: "/project/tech-innovation",
+  },
+  {
+    id: "web-creations",
+    title: "Digital Showcase",
+    cover: "/web-creations/cover.png",
+    coverBackground: "bg-white",
+    link: "/project/web-creations",
+  },
+  {
+    id: "vision-play",
+    title: "VisionPlay",
+    cover: "/vision-play/cover.png",
+    coverBackground: "bg-white",
+    link: "/project/vision-play",
+  },
+];

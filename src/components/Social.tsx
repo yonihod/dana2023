@@ -12,11 +12,6 @@ const socialLinks = [
     href: "mailto:danagaliko@gmaoil.com",
     icon: <FaEnvelope />,
   },
-  {
-    name: "linkedin",
-    href: "https://www.linkedin.com/in/dana-galiko-6b5a4b1b0/",
-    icon: <FaLinkedin />,
-  },
 ];
 
 export default function Social() {

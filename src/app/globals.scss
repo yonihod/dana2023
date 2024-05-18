@@ -133,10 +133,8 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  height: 100vh;
   width: 100vw;
   margin: 0rem;
-  overflow: hidden;
 }
 
 #image-track {
@@ -150,8 +148,8 @@ body {
   }
 
   .image {
-    width: 42vmin;
-    height: 48vmin;
+    width: 30vmin;
+    height: 36vmin;
     object-position: 100% center;
   }
 }

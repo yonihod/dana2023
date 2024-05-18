@@ -1,16 +1,11 @@
 "use client";
-import { notFound } from "next/navigation";
+import { notFound, useRouter } from "next/navigation";
 import { projectMap } from "@/data";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import Image from "next/image";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function Project({ params }: { params: { id: string } }) {
+  const router = useRouter();
   const project = projectMap.get(params?.id);
   if (!params?.id || !project) {
     return notFound;
@@ -35,32 +30,23 @@ export default function Project({ params }: { params: { id: string } }) {
           </h4>
         </div>
       </div>
-      <div className="flex flex-col-reverse md:flex-row gap-4 md:gap-12 mt-10 mb-auto">
-        <p className="max-w-xl text-white text-xl leading-8">
-          {project.description}
-        </p>
-        <Carousel className="mx-auto w-9/12 md:w-full max-w-sm">
-          <CarouselContent>
-            {project.images.map((img, index) => (
-              <CarouselItem
-                key={index}
-                className="h-full basis-full md:basis-1/2"
-              >
-                <div className="shadow shadow-white">
-                  <Image
-                    alt="image"
-                    className="rounded-lg object-cover"
-                    src={img}
-                    width={350}
-                    height={350}
-                  />
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+      <div className="flex flex-col-reverse md:flex-row justify-start flex-wrap gap-4 md:gap-4 mt-10 mb-auto ">
+        {project.images.map((img, index) => (
+          <div className="basis-1/4" key={index}>
+            <Card>
+              <CardContent className="flex aspect-square items-center justify-center p-6">
+                <Image
+                  onClick={() => router.push(`/image?img=${img}`)}
+                  alt="image"
+                  className="object-center cursor-pointer"
+                  src={img}
+                  width={350}
+                  height={350}
+                />
+              </CardContent>
+            </Card>
+          </div>
+        ))}
       </div>
     </main>
   );

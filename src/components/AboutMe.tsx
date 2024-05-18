@@ -16,7 +16,7 @@ const aboutMe = `
 
 export default function AboutMe() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between md:max-w-lg text-white text-2xl leading-loose">
+    <div className="flex min-h-screen flex-col items-center justify-between md:max-w-lg p-4 text-white text-2xl leading-loose">
       {aboutMe}
     </div>
   );

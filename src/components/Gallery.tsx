@@ -3,7 +3,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { projects } from "@/data";
+import { covers } from "@/data";
 import {
   HoverCard,
   HoverCardArrow,
@@ -17,6 +17,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { twJoin, twMerge } from "tailwind-merge";
 
 const initGallery = (track: HTMLDivElement) => {
   const numberOfImages = track.children.length;
@@ -116,20 +117,21 @@ export default function Gallery() {
     setImageReady(true);
   };
 
-  const onClick = (projectId: string) => {
-    router.push(`/project/${projectId}`);
+  const onClick = (link: string) => {
+    router.push(link);
   };
 
   return (
     <>
       <div
+        dir="ltr"
         id="image-track"
         ref={track}
         data-mouse-down-at="0"
         data-prev-percentage="0"
         className={`${imageReady ? "" : "loading"} hidden md:flex`}
       >
-        {projects.map(({ id, cover, title }, i) => (
+        {covers.map(({ id, cover, title, coverBackground, link }, i) => (
           <HoverCard key={`hover-card-${id}-${i}`}>
             <HoverCardTrigger asChild>
               <Image
@@ -139,14 +141,17 @@ export default function Gallery() {
                 width={1000}
                 height={400}
                 key={`image-${i}`}
-                className={`image fade-in-15 animate-in animate transition-opacity my-24
+                className={twMerge(
+                  `image fade-in-15 animate-in animate transition-opacity my-24
                             glow duration-500 ease-in-out cursor-pointer
-                            object-cover`}
+                            object-cover`,
+                  coverBackground
+                )}
                 src={cover}
                 alt="image"
                 draggable="false"
                 onLoad={onLoadCallBack}
-                onClick={() => onClick(id)}
+                onClick={() => onClick(link)}
               />
             </HoverCardTrigger>
             <HoverCardContent side="top" className="w-80">
@@ -164,11 +169,11 @@ export default function Gallery() {
           className="w-full h-full max-w-sm p-4 md:hidden mx-auto"
         >
           <CarouselContent className="h-[550px]">
-            {projects.map(({ id, cover, title }, i) => (
+            {covers.map(({ id, cover, coverBackground, title, link }, i) => (
               <CarouselItem
                 className="basis-1/2"
                 key={`carousel-item-${id}-${i}`}
-                onClick={() => onClick(id)}
+                onClick={() => onClick(link)}
               >
                 <div className="h-full pt-6">
                   <h4 className="text-center font-serif font-semibold text-white">
@@ -176,7 +181,10 @@ export default function Gallery() {
                   </h4>
                   <Image
                     alt="image"
-                    className="w-full h-full object-cover rounded-lg"
+                    className={twJoin(
+                      `w-full h-full object-cover rounded-lg bg-white`,
+                      coverBackground
+                    )}
                     src={cover}
                     width={350}
                     height={350}

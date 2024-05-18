@@ -11,13 +11,13 @@ const routes = {
 
 const Navbar = () => {
   return (
-    <nav className="relative flex items-center justify-center p-4 navbar">
-      <div className="left-2 z-10 absolute logo">
+    <nav className="relative md:flex items-center justify-center p-8 navbar">
+      <div className="left-0 top-0 p-8 z-20 md:absolute logo flex justify-center">
         <a href="/">
-          <Image src={Logo} alt="Galiko Design" height={40} width={40} />
+          <Image src={Logo} alt="Galiko Design" width={120} />
         </a>
       </div>
-      <ul className="z-30 flex gap-x-12 px-1 menu menu-horizontal">
+      <ul className="z-30 gap-x-12 px-1 flex justify-center">
         {Object.entries(routes).map(([route, routeName], index) => (
           <li key={index} className="navitem">
             {" "}
