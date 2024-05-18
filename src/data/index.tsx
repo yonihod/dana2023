@@ -107,7 +107,6 @@ export const categories: Category[] = [
     images: [
       "/branding/C.C.E.C Group Ltd Flayer.png",
       "/branding/Mirav-logo-gold-navy.png",
-      "/branding/C.C.E.C-Group-Asset-1.png",
       "/branding/Projects Yarden.png",
       "/branding/C.C.E.C-Group-Ltd.png",
       "/branding/Querido.png",
