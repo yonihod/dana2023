@@ -12,22 +12,20 @@ function ImageElement() {
     return notFound();
   }
 
-  return (
-    <Suspense
-      fallback={
-        <TrophySpin color="#318acc" size="medium" text="" textColor="" />
-      }
-    >
-      <Image alt="image-preview" src={img} width={600} height={600} />
-    </Suspense>
-  );
+  return <Image alt="image-preview" src={img} width={600} height={600} />;
 }
 
 export default function ImagePreviewPage() {
   return (
     <main className="grid place-items-center px-4 md:px-24 pb-28 h-screen overflow-y-auto">
       <div className="p-8 bg-white">
-        <ImageElement />
+        <Suspense
+          fallback={
+            <TrophySpin color="#318acc" size="medium" text="" textColor="" />
+          }
+        >
+          <ImageElement />
+        </Suspense>
       </div>
     </main>
   );
