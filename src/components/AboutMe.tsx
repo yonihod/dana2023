@@ -1,5 +1,4 @@
 "use client";
-import useMobile from "@/app/hooks/useMobile";
 import Dana from "@/static/dana-static.jpg";
 import Image from "next/image";
 const aboutMe = `
@@ -18,28 +17,26 @@ const aboutMe = `
 `;
 
 export default function AboutMe() {
-  const { isMobile } = useMobile();
   return (
     <div className="md:flex md:flex-row gap-12 min-h-screen text-white text-2xl leading-loose md:max-w-4xl">
-      {isMobile ? (
-        <div
-          className={
-            "bg-gradient-to-bl float-left from-transparent via-cyan-950/85 to-transparent px-2"
-          }
-        >
-          <Image
-            className="object-bottom rounded grayscale"
-            src={Dana}
-            alt="Dana Galiko"
-            width={150}
-            height={150}
-          />
-        </div>
-      ) : (
-        <div className="md:basis-1/2 basis-36 aspect-square h-full w-full">
-          <Image src={Dana} alt="Dana Galiko" width={450} height={450} />
-        </div>
-      )}
+      <div
+        className={
+          "bg-gradient-to-bl md:hidden float-left from-transparent via-cyan-950/85 to-transparent px-2"
+        }
+      >
+        <Image
+          className="object-bottom rounded grayscale"
+          src={Dana}
+          alt="Dana Galiko"
+          width={150}
+          height={150}
+        />
+      </div>
+
+      <div className="md:basis-1/2 hidden md:block basis-36 aspect-square h-full w-full">
+        <Image src={Dana} alt="Dana Galiko" width={450} height={450} />
+      </div>
+
       <p className="basis-1/2">{aboutMe}</p>
     </div>
   );
