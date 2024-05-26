@@ -17,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="he" dir="rtl">
-      <body className={`${inter.className} bg-black relative`}>
+      <body
+        className={`${inter.className} md:bg-gradient-to-r md:from-transparent md:to-transparent md:via-transparent  bg-gradient-to-bl from-transparent via-cyan-950/85 bg-black relative`}
+      >
         <Navbar />
         {children}
         <Social />
