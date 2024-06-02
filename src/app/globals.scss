@@ -141,19 +141,19 @@ body {
   margin: 0rem;
 }
 
-#image-track {
-  gap: 4vmin;
-  user-select: none;
-  transform: translateX(25%);
-  &.loading {
-    .image {
-      opacity: 0;
-    }
-  }
-
+.hero {
   .image {
-    width: 30vmin;
-    height: 36vmin;
-    object-position: 100% center;
+    height: 60vmin;
+    width: 65vmin;
+  }
+}
+
+// mobile responsive
+@media (max-width: 768px) {
+  .hero {
+    .image {
+      height: 100%;
+      width: 100%;
+    }
   }
 }

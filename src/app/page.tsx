@@ -1,4 +1,12 @@
-import Gallery from "@/components/Gallery";
+import Hero from "@/components/Hero";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import { covers } from "@/data";
+import Image from "next/image";
+import { twMerge } from "tailwind-merge";
 
 export default async function Home() {
   return (
@@ -13,7 +21,7 @@ export default async function Home() {
           <span className="font-extrabold text-slate-100 ml-4">Dana</span>
         </span>
       </h1>
-      <Gallery />
+      <Hero />
     </main>
   );
 }

@@ -30,9 +30,9 @@ export default function Project({ params }: { params: { id: string } }) {
           </h4>
         </div>
       </div>
-      <div className="flex flex-col-reverse md:flex-row justify-start flex-wrap gap-4 md:gap-4 mt-10 mb-auto ">
+      <div className="flex md:flex-row justify-start flex-wrap gap-4 md:gap-4 mt-10 mb-auto ">
         {project.images.map((img, index) => (
-          <div className="basis-1/4" key={index}>
+          <div className="md:basis-1/3" key={index}>
             <Card>
               <CardContent className="flex aspect-square items-center justify-center p-6">
                 <Image
@@ -40,8 +40,8 @@ export default function Project({ params }: { params: { id: string } }) {
                   alt="image"
                   className="object-center cursor-pointer"
                   src={img}
-                  width={350}
-                  height={350}
+                  width={450}
+                  height={450}
                 />
               </CardContent>
             </Card>

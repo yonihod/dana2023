@@ -11,6 +11,10 @@ export default function Project({ params }: { params: { id: string } }) {
     return notFound;
   }
 
+  const onClick = (link: string) => {
+    router.push(link);
+  };
+
   return (
     <main className="flex flex-col items-center justify-between px-4 md:px-24 pb-28 h-screen overflow-y-auto">
       <div
@@ -28,10 +32,12 @@ export default function Project({ params }: { params: { id: string } }) {
           </h1>
         </div>
       </div>
-      <div className="flex flex-col-reverse md:flex-row justify-start md:flex-wrap mt-10 mb-auto ">
-        {category.images.map((img, index) => (
+      <div className="grid max-w-4xl md:grid-cols-4 grid-cols-1 justify-start mt-10 mb-auto ">
+        {category.images.map(({ link, img }, index) => (
           <div
-            className="basis-1/4 opacity-0 animate animate-fadeIn"
+            className={`${
+              index % 3 === 0 ? "row-span-2 col-span-2" : "row-span-1"
+            } opacity-0 animate animate-fadeIn`}
             style={{
               animationDelay: `${index * 0.2}s`,
               animationDirection: "normal",
@@ -40,12 +46,20 @@ export default function Project({ params }: { params: { id: string } }) {
             key={index}
           >
             <Image
-              onClick={() => router.push(`/image?img=${img}`)}
+              onClick={() => onClick(link ?? `/image?img=${img}`)}
               alt="image"
-              className="object-center cursor-pointer bg-white"
+              className="object-center hidden md:block cursor-pointer bg-white"
               src={img}
-              width={350}
-              height={350}
+              width={index % 4 === 0 ? 650 : 450}
+              height={index % 4 === 0 ? 650 : 450}
+            />
+            <Image
+              onClick={() => onClick(link ?? `/image?img=${img}`)}
+              alt="image"
+              className="object-center md:hidden cursor-pointer bg-white"
+              src={img}
+              width={450}
+              height={450}
             />
           </div>
         ))}

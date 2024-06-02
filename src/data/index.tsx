@@ -13,6 +13,17 @@ export const projects = [
     ],
   },
   {
+    id: "harvest",
+    title: "Harvest",
+    cover: "/cover/branding.webp",
+    coverBackground: "bg-white",
+    images: [
+      "/branding/Roll-Up.png",
+      "/branding/Harvest-business-card.png",
+      "/branding/shirt.png",
+    ],
+  },
+  {
     id: "urban-oasis",
     title: "Urban Oasis",
     subtitle: "Revitalizing City Spaces",
@@ -92,10 +103,15 @@ export const projects = [
   },
 ];
 
+type ProjectImage = {
+  link?: string;
+  img: string;
+};
+
 type Category = {
   id: string;
   title: string;
-  images: string[];
+  images: ProjectImage[];
   cover?: string;
 };
 
@@ -105,21 +121,36 @@ export const categories: Category[] = [
     title: "Branding",
     cover: "/category/branding/stains-brush.jpg",
     images: [
-      "/branding/C.C.E.C Group Ltd Flayer.png",
-      "/branding/Mirav-logo-gold-navy.png",
-      "/branding/Projects Yarden.png",
-      "/branding/C.C.E.C-Group-Ltd.png",
-      "/branding/Querido.png",
-      "/branding/Gaming Poster.png",
-      "/branding/Shai Sharon business card.png",
-      "/branding/Harvest Business Development.png",
-      "/branding/Yarden consulting.png",
+      { img: "/branding/C.C.E.C Group Ltd Flayer.png" },
+      { img: "/branding/shirt.png", link: "/project/harvest" },
+      { img: "/branding/Mirav-logo-gold-navy.png" },
+      { img: "/branding/Projects Yarden.png" },
+      { img: "/branding/C.C.E.C-Group-Ltd.png" },
+      { img: "/branding/Querido.png" },
+      { img: "/branding/Harvest-business-card.png", link: "/project/harvest" },
+      { img: "/branding/Gaming Poster.png" },
+      { img: "/branding/Shai Sharon business card.png" },
+      { img: "/branding/Yarden consulting.png" },
+      { img: "/branding/Roll-Up.png", link: "/project/harvest" },
+      { img: "/branding/Business-Development-Inspiration.png" },
+      { img: "/branding/Website-Design.png" },
     ],
   },
   {
-    id: "social",
-    title: "Social Media",
-    images: ["/social-spectrum/1.png", "/social-spectrum/2.png"],
+    id: "presentation",
+    title: "Presentation",
+    cover: "/category/branding/stains-brush.jpg",
+    images: [
+      { img: "/branding/C.C.E.C Group Ltd Flayer.png" },
+      { img: "/branding/Mirav-logo-gold-navy.png" },
+      { img: "/branding/Projects Yarden.png" },
+      { img: "/branding/C.C.E.C-Group-Ltd.png" },
+      { img: "/branding/Querido.png" },
+      { img: "/branding/Gaming Poster.png" },
+      { img: "/branding/Shai Sharon business card.png" },
+      { img: "/branding/Harvest Business Development.png" },
+      { img: "/branding/Yarden consulting.png" },
+    ],
   },
 ];
 
@@ -148,52 +179,10 @@ export const covers: Cover[] = [
     link: "/category/branding",
   },
   {
-    id: "urban-oasis",
-    title: "Urban Oasis",
-    cover: "/urban-oasis/cover.png",
+    id: "presentation",
+    title: "Presentation",
+    cover: "/cover/presentation.webp",
     coverBackground: "bg-white",
-    link: "/project/urban-oasis",
-  },
-  {
-    id: "digital-canvas",
-    title: "Digital Canvas",
-    cover: "/digital-canvas/cover.png",
-    coverBackground: "bg-white",
-    link: "/project/digital-canvas",
-  },
-  {
-    id: "social-spectrum",
-    title: "Social Spectrum",
-    cover: "/social-spectrum/cover.png",
-    coverBackground: "bg-white",
-    link: "/project/social-spectrum",
-  },
-  {
-    id: "culinary-delights",
-    title: "Culinary Delights",
-    cover: "/culinary-delights/cover.png",
-    coverBackground: "bg-white",
-    link: "/project/culinary-delights",
-  },
-  {
-    id: "tech-innovation",
-    title: "Tech Innovations",
-    cover: "/tech-innovation/cover.png",
-    coverBackground: "bg-white",
-    link: "/project/tech-innovation",
-  },
-  {
-    id: "web-creations",
-    title: "Digital Showcase",
-    cover: "/web-creations/cover.png",
-    coverBackground: "bg-white",
-    link: "/project/web-creations",
-  },
-  {
-    id: "vision-play",
-    title: "VisionPlay",
-    cover: "/vision-play/cover.png",
-    coverBackground: "bg-white",
-    link: "/project/vision-play",
+    link: "/category/presentation",
   },
 ];
