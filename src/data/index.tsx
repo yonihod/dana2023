@@ -20,7 +20,7 @@ export const projects = [
     images: [
       "/branding/Roll-Up.png",
       "/branding/Harvest-business-card.png",
-      "/branding/shirt.png",
+      "/branding/Shirt.png",
     ],
   },
   {
@@ -122,7 +122,7 @@ export const categories: Category[] = [
     cover: "/category/branding/stains-brush.jpg",
     images: [
       { img: "/branding/C.C.E.C Group Ltd Flayer.png" },
-      { img: "/branding/shirt.png", link: "/project/harvest" },
+      { img: "/branding/Shirt.png", link: "/project/harvest" },
       { img: "/branding/Mirav-logo-gold-navy.png" },
       { img: "/branding/Projects Yarden.png" },
       { img: "/branding/C.C.E.C-Group-Ltd.png" },
